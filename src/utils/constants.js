@@ -65,4 +65,4 @@ export const drinks = [
 
 export const products_url = "http://localhost:5000/api/v1/products/";
 
-export const single_product_url = `http://localhost:5000/api/v1/products?id=`;
+// export const single_product_url = `http://localhost:5000/api/v1/products/id=`;

@@ -143,8 +143,8 @@ p {
 }
 
 .btn:hover {
-  color: var(--clr-primary);
-  background: var(--clr-primary-light);
+  color: var(--clr-primary-10);
+  background: var(--clr-primary-1);
 }
 
 .section {

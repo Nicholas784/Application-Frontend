@@ -9,6 +9,13 @@ import Welcome from "./Welcome";
 import WhatWeOffer from "./WhatWeOffer";
 import NewsLetter from "./NewsLetter";
 import Loading from "./Loading";
+import Error from "./Error";
+import ProductImages from "./ProductImages";
+import Stars from "./Stars";
+import AddToCart from "./AddToCart";
+import Filters from "./Filters";
+import Sort from "./Sort";
+import ProductsList from "./ProductsList";
 
 export {
   Footer,
@@ -22,4 +29,11 @@ export {
   WhatWeOffer,
   NewsLetter,
   Loading,
+  Error,
+  ProductImages,
+  Stars,
+  AddToCart,
+  Filters,
+  Sort,
+  ProductsList,
 };

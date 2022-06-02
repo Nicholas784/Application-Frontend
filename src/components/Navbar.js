@@ -131,6 +131,7 @@ const NavContainer = styled.nav`
     color: var(--clr-grey-1);
     cursor: pointer;
     font-size: 1.5rem;
+    font-weight: 700;
     transition: var(--transition);
   }
 

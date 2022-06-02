@@ -1,13 +1,371 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* 
+============
+Fonts
+============
+*/
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700|Grand+Hotel");
+
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
+
+/* 
+============
+Variables
+============
+*/
+
+:root {
+  --clr-primary-1: #93bc67;
+  --clr-primary-2: #88b658;
+  --clr-primary-3: #7dac4c;
+  --clr-primary-4: #729d45;
+  --clr-primary: #678e3e;
+  --clr-primary-6: #60843a;
+  --clr-primary-7: #597a35;
+  --clr-primary-8: #516f31;
+  --clr-primary-9: #4a652c;
+  --clr-primary-10: #425b28;
+  --clr-secondary-1: #ffd454;
+  --clr-secondary-2: #ffd043;
+  --clr-secondary-3: #ffcc32;
+  --clr-secondary-4: #ffc720;
+  --clr-secondary: #ffc30f;
+  --clr-secondary-6: #fbbc00;
+  --clr-secondary-7: #e8ae00;
+  --clr-secondary-8: #d49f00;
+  --clr-secondary-9: #c19100;
+  --clr-secondary-10: #ae8200;
+  --clr-primary-light: #beed8c;
+  --clr-grey-1: #102a42;
+  --clr-grey-5: #617d98;
+  --clr-grey-10: #f1f5f8;
+  --clr-white: #fff;
+  --ff-primary: "Catamaran", sans-serif;
+  --ff-title-primary: "Lato", sans-serif;
+  --ff-secondary: "Grand Hotel", cursive;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary);
+  /* background: var(--clr-grey-10); */
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img:not(.nav-logo, ) {
+  width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-primary);
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
+.btn {
+  text-transform: uppercase;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  font-weight: 700;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  color: var(--clr-primary);
+  background: var(--clr-primary-light);
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h2 {
+  /* font: var(--ff-title-primary); */
+  text-transform: uppercase;
+}
+
+/* .section-title span {
+  color: var(--clr-secondary);
+} */
+
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+.underline {
+  width: 5rem;
+  height: 0.25rem;
+  margin-bottom: 1.25rem;
+  background: var(--clr-secondary);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto;
+  margin-top: 10rem;
+  border-radius: 50%;
+  border: 4px solid #ccc;
+  border-top-color: var(--clr-primary-5);
+  animation: spinner 0.6s linear infinite;
+}
+
+/* 
+============
+Promo banner
+============
+*/
+.promotions-container {
+  top: 0;
+  left: 0;
+  position: relative;
+  width: 100%;
+  height: 0;
+  background-color: var(--clr-grey-10);
+  overflow: hidden;
+  display: flex;
+}
+.promotion {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 2rem;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.button-container {
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  padding: 1rem 0;
+}
+
+.show-promo {
+  height: 3rem;
+}
+
+.promo-close {
+  position: absolute;
+  background-color: var(--clr-grey-10);
+  border: transparent;
+  font-size: 1rem;
+  padding: 1rem 1rem;
+  right: 0;
+  cursor: pointer;
+}
+
+.promotion h4 {
+  margin-right: 1rem;
+}
+
+.promotion a {
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+.promotion.activeSlide {
+  opacity: 1;
+  transform: translateX(0);
+}
+.promotion.lastSlide {
+  transform: translateX(-100%);
+}
+.promotion.nextSlide {
+  transform: translateX(100%);
+}
+
+@media screen and (min-width: 750px) {
+  .promotion a {
+    font-size: 0.875rem;
+  }
+}
+
+/* 
+============
+Slider banner
+============
+*/
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--clr-white);
+}
+
+/* 
+============
+Slider
+============
+*/
+.grow {
+  height: calc(100vh - 3.5rem);
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+div.activeSlide {
+  opacity: 1;
+  transform: translateX(0);
+}
+div.lastSlide {
+  transform: translateX(-100%);
+}
+div.nextSlide {
+  transform: translateX(100%);
+}
+
+/* .slide:nth-child(1) {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("./images/Hairoun-image-1.jpg") center/cover no-repeat;
+}
+.slide:nth-child(2) {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("./images/Hairoun-image-2.jpg") center/cover no-repeat;
+}
+.slide:nth-child(3) {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("./images/Hairoun-image-3.jpg") center/cover no-repeat;
+} */
+
+.shop-btn {
+  outline: 0.125rem solid var(--clr-primary);
+  outline-offset: 0.25rem;
+  font-size: 1.25rem;
+  padding: 1rem 1.75rem;
+  animation: show 5s linear 1;
+}
+
+.error-page {
+  height: calc(100vh - (3rem + 3.5rem + 6rem));
+}
+
+.pg {
+  height: calc(100vh - (3.5rem + 6rem));
+}
+
+.page {
+  min-height: calc(100vh - (20vh + 12.5rem));
+}
+
+.drink-slide {
+  opacity: 0;
+}
+
+.drinks-slide {
+  opacity: 0;
 }

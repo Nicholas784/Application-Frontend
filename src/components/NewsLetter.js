@@ -35,20 +35,20 @@ const Wrapper = styled.section`
   }
   .newsletter-form {
     width: 90vw;
-    max-width: 500px;
+    max-width: 300px;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto auto;
   }
 
   .form-input,
   .submit-btn {
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     border: 2px solid var(--clr-grey-1);
   }
   .form-input {
     border-right: none;
-    color: var(--clr-grey-3);
+    color: var(--clr-grey-5);
     border-top-left-radius: var(--radius);
     border-bottom-left-radius: var(--radius);
   }
@@ -82,7 +82,11 @@ const Wrapper = styled.section`
     p {
       margin-bottom: 0;
     }
+    .newsletter-form {
+      max-width: 500px;
+    }
   }
+
   @media (min-width: 1280px) {
     padding: 15rem 0;
   }

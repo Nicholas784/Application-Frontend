@@ -51,6 +51,8 @@ const Navbar = () => {
 };
 
 const NavContainer = styled.nav`
+  position: sticky;
+  top: 0;
   display: flex;
   height: 3.5rem;
   width: 100%;

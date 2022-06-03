@@ -63,6 +63,7 @@ export const drinks = [
   },
 ];
 
-export const products_url = "http://localhost:5000/api/v1/products/";
+export const products_url =
+  "https://brewery-api-1.herokuapp.com/api/v1/products/";
 
 // export const single_product_url = `http://localhost:5000/api/v1/products/id=`;

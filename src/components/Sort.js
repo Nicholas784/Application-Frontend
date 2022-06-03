@@ -30,21 +30,6 @@ const Sort = () => {
       </div>
       <p>{products.length} products found</p>
       <div className="line"></div>
-      {/* <form>
-        <label htmlFor="sort">sort by</label>
-        <select
-          name="sort"
-          id="sort"
-          className="sort-input"
-          value={sort}
-          onChange={updateSort}
-        >
-          <option value="none">-</option>
-          <option value="price">price</option>
-          <option value="name-a">name (A-Z)</option>
-          <option value="name-z">name (Z-A)</option>
-        </select>
-      </form> */}
     </Wrapper>
   );
 };

@@ -8,6 +8,8 @@ import {
   Cart,
   Checkout,
   Error,
+  Contact,
+  Login,
 } from "./pages";
 import styled from "styled-components";
 
@@ -18,6 +20,8 @@ function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/products" element={<Products />} />

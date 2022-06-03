@@ -28,7 +28,8 @@ const Hero = () => {
 
   return (
     <Wrapper
-      className={isPromobarOpen ? "slider-container" : "slider-container grow"}
+      className="slider-container"
+      // {isPromobarOpen ? "slider-container" : "slider-container grow"}
     >
       {slides.map((slide, slideIndex) => {
         const { id, url, name } = slide;
@@ -64,7 +65,7 @@ const Hero = () => {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: calc(100vh - 6.5rem);
+  height: calc(100vh - 3.5rem);
   position: relative;
   overflow: hidden;
 `;

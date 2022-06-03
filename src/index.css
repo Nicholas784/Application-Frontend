@@ -39,6 +39,7 @@ Variables
   --clr-grey-5: #617d98;
   --clr-grey-10: #f1f5f8;
   --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
   --ff-primary: "Catamaran", sans-serif;
   --ff-title-primary: "Lato", sans-serif;
   --ff-secondary: "Grand Hotel", cursive;
@@ -293,9 +294,9 @@ Slider banner
 Slider
 ============
 */
-.grow {
-  height: calc(100vh - 3.5rem);
-}
+/* .grow {
+  height: calc(100vh);
+} */
 
 .slide {
   position: absolute;

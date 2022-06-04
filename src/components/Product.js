@@ -37,6 +37,7 @@ const Wrapper = styled.article`
 
   p {
     font-size: 1rem;
+    color: var(--clr-primary);
   }
 
   @media (min-width: 550px){
@@ -70,6 +71,14 @@ const Wrapper = styled.article`
     img {
       height: 420px;
       width: 300px;
+      object-fit: cover;
+    }
+  }
+
+  @media (min-width: 900px) {
+    img {
+      height: 400px;
+      width: 250px;
       object-fit: cover;
     }
   }

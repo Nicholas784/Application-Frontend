@@ -43,7 +43,7 @@ const Wrapper = styled.section`
 
   @media (min-width: 992px) {
     .products {
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: 200px 0px 1fr;
     }
     .filters {
       display: grid;

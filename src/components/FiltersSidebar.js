@@ -40,7 +40,7 @@ const SidebarContainer = styled.div`
   .sidebar {
     position: relative;
     height: 100%;
-    width: 40vw;
+    width: 80vw;
     background: var(--clr-white);
     padding: 0 2rem;
     transition: var(--transition);
@@ -83,7 +83,25 @@ const SidebarContainer = styled.div`
     right: 0;
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 500px) {
+    .sidebar {
+      width: 60vw;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .sidebar {
+      width: 45vw;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .sidebar {
+      width: 300px;
+    }
+  }
+
+  @media (min-width: ) @media (min-width: 992px) {
     display: none;
   }
 `;

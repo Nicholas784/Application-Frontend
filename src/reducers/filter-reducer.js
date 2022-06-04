@@ -2,11 +2,11 @@ import {
   LOAD_PRODUCTS,
   SET_LISTVIEW,
   SET_GRIDVIEW,
-  UPDATE_SORT,
-  SORT_PRODUCTS,
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
   CLEAR_FILTERS,
+  FILTER_OPEN,
+  FILTER_CLOSE,
 } from "../actions";
 
 const filter_reducer = (state, action) => {
@@ -72,6 +72,15 @@ const filter_reducer = (state, action) => {
         price: state.filters.max_price,
       },
     };
+  }
+  if (action.type === FILTER_OPEN) {
+    console.log("opening");
+    return { ...state, isFilterOpen: true };
+  }
+
+  if (action.type === FILTER_CLOSE) {
+    console.log("closing");
+    return { ...state, isFilterOpen: false };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);

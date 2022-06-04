@@ -8,6 +8,7 @@ const Sort = () => {
     grid_view,
     setGridView,
     setListView,
+    openFilters,
   } = useFilterContext();
   return (
     <Wrapper>
@@ -15,7 +16,7 @@ const Sort = () => {
         <div className="line"></div>
         <div className="all-btn-container">
           <div className="filter">
-            <button type="button">
+            <button type="button" onClick={openFilters}>
               <BsFilter />
             </button>
             <span>Filter</span>
@@ -61,7 +62,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space between;
-    padding: 0.5rem 3rem;
+    padding: 0.5rem 1.5rem;
   }
 
   .large {
@@ -95,6 +96,10 @@ const Wrapper = styled.div`
   @media (min-width: 600px) {
     p {
       font-size: 1rem;
+    }
+
+    .all-btn-container {
+      padding: 0.5rem 3rem;
     }
   }
 

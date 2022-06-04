@@ -4,11 +4,11 @@ import {
   LOAD_PRODUCTS,
   SET_GRIDVIEW,
   SET_LISTVIEW,
-  UPDATE_SORT,
-  SORT_PRODUCTS,
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
   CLEAR_FILTERS,
+  FILTER_OPEN,
+  FILTER_CLOSE,
 } from "../actions";
 import { useProductsContext } from "./products-context";
 
@@ -24,6 +24,7 @@ const initialState = {
     max_price: 0,
     price: 0,
   },
+  isFilterOpen: false,
 };
 
 const FilterContext = React.createContext();
@@ -69,6 +70,15 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: CLEAR_FILTERS });
   };
 
+  const openFilters = () => {
+    dispatch({ type: FILTER_OPEN });
+  };
+
+  const closeFilters = () => {
+    console.log("close");
+    dispatch({ type: FILTER_CLOSE });
+  };
+
   return (
     <FilterContext.Provider
       value={{
@@ -77,6 +87,8 @@ export const FilterProvider = ({ children }) => {
         setListView,
         updateFilters,
         resetFilters,
+        openFilters,
+        closeFilters,
       }}
     >
       {children}

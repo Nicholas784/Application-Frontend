@@ -189,10 +189,15 @@ const Wrapper = styled.section`
     border-radius: var(--radius);
   }
 
+  .content {
+    padding-top: 2rem;
+  }
+
   @media (min-width: 992px) {
     .content {
       position: sticky;
       top: 4.5rem;
+      padding-top: 0;
     }
   }
 `;

@@ -19,6 +19,7 @@ const Wrapper = styled.section`
   .products-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2rem 1rem;
   }
 
   @media (min-width: 1200px) {

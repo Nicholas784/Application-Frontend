@@ -27,7 +27,7 @@ const Wrapper = styled.article`
     border-radius: var(--radius);
   }
   img {
-    height: 300px;
+    height: 200px;
     border-radius: var(--radius);
   }
   h4 {
@@ -39,17 +39,39 @@ const Wrapper = styled.article`
     font-size: 1rem;
   }
 
+  @media (min-width: 550px){
+    img {
+      height: 250px;
+    }
+  }
+
   @media (min-width: 650px) {
     img {
+      height: 350px;
       width: 250px;
       object-fit: cover;
     }
+
   @media (min-width: 850px) {
     img {
       height: 400px;
       object-fit: cover;
     }
 
+    h4 {
+      font-size: 1.15rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (min-width: 900px) {
+    img {
+      height: 420px;
+      width: 300px;
+      object-fit: cover;
+    }
   }
 
   footer {

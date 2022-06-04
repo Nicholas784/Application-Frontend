@@ -4,7 +4,7 @@ import Product from "./Product";
 
 const GridView = ({ products }) => {
   return (
-    <Wrapper>
+    <Wrapper className="scroll">
       <div className="products-container">
         {products.map((product) => {
           return <Product key={product.id} {...product} />;
@@ -15,36 +15,17 @@ const GridView = ({ products }) => {
 };
 
 const Wrapper = styled.section`
-  img {
-    height: 400px;
-  }
+  // overflow-x: scroll;
   .products-container {
     display: grid;
-    // grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 1.5rem;
+    grid-template-columns: 1fr 1fr;
   }
 
-  @media (min-width: 680px) {
-    img {
-      height: 300px;
-    }
+  @media (min-width: 1200px) {
     .products-container {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 900px) {
-    img {
-      height: 400px;
-      border-radius: var(--radius);
-    }
-    .products-container {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (min-width: 1170px) {
-    .products-container {
-      grid-template-columns: repeat(3, 1fr);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem 2rem;
     }
   }
 `;

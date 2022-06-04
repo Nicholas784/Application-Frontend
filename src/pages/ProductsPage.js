@@ -7,7 +7,9 @@ const Products = () => {
       <PageHero title="products" />
       <Wrapper className="page">
         <div className="section-center products">
-          <Filters />
+          <div className="filters">
+            <Filters />
+          </div>
           <div>
             <Sort />
             <ProductsList />
@@ -22,16 +24,22 @@ const Products = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   .products {
+    position: relative;
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 3rem 1.5rem;
     margin: 4rem auto;
   }
-  @media (min-width: 768px) {
+  .filters {
+    display: none;
+  }
+
+  @media (min-width: 992px) {
     .products {
       grid-template-columns: 200px 1fr;
+    }
+    .filters {
+      display: grid;
     }
   }
 `;

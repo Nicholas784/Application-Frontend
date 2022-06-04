@@ -10,34 +10,56 @@ const Product = ({ image, name, price, id }) => {
         <Link to={`/products/${id}`} className="link">
           <img src={image} alt={name} />
         </Link>
+        <footer>
+          <h4>{name}</h4>
+          <p>{formatPrice(price)}</p>
+        </footer>
       </div>
-      <footer>
-        <h4>{name}</h4>
-        <p>{formatPrice(price)}</p>
-      </footer>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.article`
+  .container {
+    display: grid;
+    justify-content: center;
+    // position: relative;
+    border-radius: var(--radius);
+  }
+  img {
+    height: 300px;
+    border-radius: var(--radius);
+  }
   h4 {
     letter-spacing: 0;
     margin-bottom: 0;
   }
+
   p {
-    color: var(--clr-primary);
+    font-size: 1rem;
   }
-  img {
-    border-radius: var(--radius);
-  }
-  img:hover {
-    cursor: pointer;
-  }
-  @media (min-width: 900px) {
-    h4 {
-      font-size: 1.25rem;
+
+  @media (min-width: 650px) {
+    img {
+      width: 250px;
+      object-fit: cover;
     }
+  @media (min-width: 850px) {
+    img {
+      height: 400px;
+      object-fit: cover;
+    }
+
   }
+
+  footer {
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  
+  
 `;
 
 export default Product;

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ListView = ({ products }) => {
   return (
-    <Wrapper>
+    <Wrapper className="scroll">
       {products.map((product) => {
         const { id, image, name, price, description } = product;
         return (
@@ -16,7 +16,7 @@ const ListView = ({ products }) => {
             <div>
               <h3>{name}</h3>
               <h4 className="price">{formatPrice(price)}</h4>
-              <p>{description.substring(0, 150)}...</p>
+              <p>{description.substring(0, 200)}...</p>
             </div>
           </article>
         );
@@ -28,45 +28,65 @@ const ListView = ({ products }) => {
 const Wrapper = styled.section`
   display: grid;
   row-gap: 3rem;
-
-  article:hover {
-    cursor: pointer;
-  }
-
   img {
-    width: 100%;
-    display: block;
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
+    height: 300px;
     border-radius: var(--radius);
-    margin-bottom: 1rem;
+  }
+  article {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+    align-items: center;
   }
   h3 {
-    margin-bottom: 0.5rem;
     letter-spacing: 0;
+    color: var(--clr-grey-1);
   }
   h4 {
     letter-spacing: 0;
+    color: var(--clr-primary);
+    font-size: 1rem;
   }
-  .price {
-    color: var(--clr-primary-6);
-    margin-bottom: 0.75rem;
+
+  @media (max-width: 500px) {
+    // overflow-x: scroll;
   }
-  p {
-    max-width: 45em;
-    margin-bottom: 1rem;
+
+  @media (min-width: 600px) {
+    h3 {
+      font-size: 1.75rem;
+    }
+    h4 {
+      font-size: 1.25rem;
+    }
+    p {
+      font-size: 1rem;
+    }
   }
-  .btn {
-    font-size: 0.5rem;
-    padding: 0.25rem 0.5rem;
+
+  @media (min-width: 700px) {
+    img {
+      height: 400px;
+      widht: 350px;
+      object-fit: cover;
+    }
   }
-  @media (min-width: 850px) {
-    article {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      column-gap: 2rem;
-      align-items: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr;
+    img {
+      height: 350px;
+      width: 300px;
+      object-fit: cover;
+    }
+  }
+
+  @media (min-width: 992px) {
+    img {
+      height: 450px;
+    }
+    h4 {
+      font-size: 1.5rem;
     }
   }
 `;

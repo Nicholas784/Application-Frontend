@@ -1,5 +1,5 @@
 import { useFilterContext } from "../context/filter-context";
-import { BsFillGridFill, BsList } from "react-icons/bs";
+import { BsFillGridFill, BsList, BsFilter } from "react-icons/bs";
 import styled from "styled-components";
 
 const Sort = () => {
@@ -11,35 +11,80 @@ const Sort = () => {
   } = useFilterContext();
   return (
     <Wrapper>
-      <div className="line"></div>
-      <div className="btn-container">
-        <button
-          type="button"
-          className={`${grid_view ? "active" : null}`}
-          onClick={setGridView}
-        >
-          <BsFillGridFill />
-        </button>
-        <button
-          type="button"
-          className={`${!grid_view ? "active" : null}`}
-          onClick={setListView}
-        >
-          <BsList />
-        </button>
+      <div className="container">
+        <div className="line"></div>
+        <div className="all-btn-container">
+          <div className="filter">
+            <button type="button">
+              <BsFilter />
+            </button>
+            <span>Filter</span>
+          </div>
+          <p className="small">{products.length} products found</p>
+          <div className="view-btn-container">
+            <button
+              type="button"
+              className={`${grid_view ? "active" : null}`}
+              onClick={setGridView}
+            >
+              <BsFillGridFill />
+            </button>
+            <button
+              type="button"
+              className={`${!grid_view ? "active" : null}`}
+              onClick={setListView}
+            >
+              <BsList />
+            </button>
+          </div>
+        </div>
+        <p className="large">{products.length} products found</p>
+        <div className="line"></div>
       </div>
-      <p>{products.length} products found</p>
-      <div className="line"></div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr auto auto 1fr;
-  align-items: center;
-  margin-bottom: 2rem;
-  column-gap: 2rem;
+  // .large-screen {
+  //   display: none;
+  // }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .all-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: space between;
+    padding: 0.5rem 3rem;
+  }
+
+  .large {
+    display: none;
+  }
+
+  .filter {
+    display: flex;
+    align-items: center;
+    button {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      margin-right: 0.25rem;
+      cursor: pointer;
+    }
+  }
+
+  p {
+    width: auto;
+    margin: 0 auto;
+    font-size: 0.75rem;
+  }
 
   .line {
     height: 1px;
@@ -47,34 +92,48 @@ const Wrapper = styled.div`
     background-color: var(--clr-grey-1);
   }
 
-  @media (max-width: 600px) {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 0.75rem;
-    .btn-container {
-      display: grid;
-      width: 50px;
-      margin: 0 auto;
-    }
+  @media (min-width: 600px) {
     p {
-      width: auto;
-      margin: 0 auto;
-    }
-    .line {
-      height: 1px;
-      width: auto;
-      background-color: var(--clr-grey-1);
+      font-size: 1rem;
     }
   }
+
   @media (min-width: 768px) {
-    column-gap: 2rem;
+    p {
+      font-size: 1.15rem;
+    }
   }
+
+  @media (min-width: 992px) {
+    .container {
+      display: grid;
+      grid-template-columns: 1fr auto auto 1fr;
+      align-items: center;
+      margin-bottom: 2rem;
+      column-gap: 2rem;
+    }
+    .small {
+      display: none;
+    }
+    .large {
+      display: grid;
+    }
+
+    .filter {
+      display: none;
+    }
+
+    .all-btn-container {
+      padding: 0;
+    }
+  }
+
   p {
     text-transform: capitalize;
     margin-bottom: 0;
   }
 
-  .btn-container {
+  .view-btn-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 0.5rem;
@@ -97,17 +156,6 @@ const Wrapper = styled.div`
       background: var(--clr-primary);
       color: var(--clr-white);
     }
-  }
-
-  .sort-input {
-    border-color: transparent;
-    font-size: 1rem;
-    text-transform: capitalize;
-    padding: 0.25rem 0.5rem;
-  }
-  label {
-    font-size: 1rem;
-    text-transform: capitalize;
   }
 `;
 

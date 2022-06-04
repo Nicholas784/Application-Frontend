@@ -188,7 +188,8 @@ const Wrapper = styled.section`
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius);
   }
-  @media (min-width: 768px) {
+
+  @media (min-width: 992px) {
     .content {
       position: sticky;
       top: 4.5rem;

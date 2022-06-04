@@ -59,7 +59,6 @@ Variables
 
 body {
   font-family: var(--ff-primary);
-  /* background: var(--clr-grey-10); */
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
@@ -369,4 +368,13 @@ div.nextSlide {
 
 .drinks-slide {
   opacity: 0;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

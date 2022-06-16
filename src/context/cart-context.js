@@ -22,8 +22,11 @@ export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // add to cart function
-  const addToCart = (id, size, amount, product) => {
-    dispatch({ type: ADD_TO_CART, payload: { id, size, amount, product } });
+  const addToCart = (id, size, amount, product, price) => {
+    dispatch({
+      type: ADD_TO_CART,
+      payload: { id, size, amount, product, price },
+    });
   };
   return (
     <CartContext.Provider value={{ ...state, addToCart }}>

@@ -21,6 +21,7 @@ const SingleProducts = () => {
     single_product_error: error,
     single_product: product,
     fetchSingleProduct,
+    productSize,
   } = useProductsContext();
 
   useEffect(() => {
@@ -51,6 +52,19 @@ const SingleProducts = () => {
     image,
   } = product;
 
+  let denominator = 0;
+  let newPrice = price;
+
+  if (productSize !== "case") {
+    if (parseInt(productSize.charAt(0)) === 6) {
+      denominator = 4;
+      newPrice = price / denominator;
+    } else if (parseInt(productSize.charAt(0)) === 4) {
+      denominator = 6;
+      newPrice = price / denominator;
+    }
+  }
+
   return (
     <Wrapper>
       <PageHero title={name} product />
@@ -63,7 +77,11 @@ const SingleProducts = () => {
           <section className="content">
             <h2>{name}</h2>
             <Stars rating={averageRating} reviews={numOfReviews} />
-            <h5 className="price">{formatPrice(price)}</h5>
+            <h5 className="price">
+              {productSize === "case"
+                ? formatPrice(price)
+                : formatPrice(price / denominator)}
+            </h5>
             <p className="desc">{description}</p>
             <p className="info">
               <span>Available : </span>
@@ -78,7 +96,7 @@ const SingleProducts = () => {
               {category}
             </p>
             <hr />
-            {inventory > 0 && <AddToCart product={product} />}
+            {inventory > 0 && <AddToCart price={newPrice} product={product} />}
           </section>
         </div>
       </div>

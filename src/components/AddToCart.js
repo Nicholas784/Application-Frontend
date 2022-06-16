@@ -3,11 +3,13 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 import { useCartContext } from "../context/cart-context";
+import { useProductsContext } from "../context/products-context";
 import AmountButtons from "./AmountButtons";
 
-const AddToCart = ({ product }) => {
+const AddToCart = (props) => {
   const { addToCart } = useCartContext();
-  const { id, inventory: stock, size: sizes } = product;
+  const { SetProductSize } = useProductsContext();
+  const { id, inventory: stock, size: sizes } = props.product;
 
   const [mainSize, setMainSize] = useState(sizes[0]);
   const [amount, setAmount] = useState(1.0);
@@ -62,6 +64,7 @@ const AddToCart = ({ product }) => {
                   }`}
                   onClick={() => {
                     setMainSize(size);
+                    SetProductSize(size);
                     setAmount(1);
                   }}
                 >
@@ -81,7 +84,9 @@ const AddToCart = ({ product }) => {
         <Link
           to="/cart"
           className="btn"
-          onClick={() => addToCart(id, mainSize, amount, product)}
+          onClick={() =>
+            addToCart(id, mainSize, amount, props.product, props.price)
+          }
         >
           add to cart
         </Link>

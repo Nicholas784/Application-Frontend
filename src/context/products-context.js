@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import reducer from "../reducers/products-reducer";
 import { products_url as url } from "../utils/constants";
 import {
@@ -19,12 +19,14 @@ const initialState = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
+  product_size: "",
 };
 
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [productSize, setProductSize] = useState("case");
 
   const fetchProducts = async (url) => {
     dispatch({ type: GET_PRODUCTS_BEGIN });
@@ -52,11 +54,17 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  const SetProductSize = (size) => {
+    setProductSize(size);
+  };
+
   return (
     <ProductsContext.Provider
       value={{
         ...state,
+        productSize,
         fetchSingleProduct,
+        SetProductSize,
       }}
     >
       {children}

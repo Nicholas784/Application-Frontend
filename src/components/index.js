@@ -17,6 +17,7 @@ import Filters from "./Filters";
 import Sort from "./Sort";
 import ProductsList from "./ProductsList";
 import FiltersSidebar from "./FiltersSidebar";
+import CartContent from "./CartContent";
 
 export {
   Footer,
@@ -38,4 +39,5 @@ export {
   Sort,
   ProductsList,
   FiltersSidebar,
+  CartContent,
 };

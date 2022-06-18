@@ -1,4 +1,4 @@
-import React, { useState, useContext, useReducer } from "react";
+import React, { useState, useContext, useReducer, useEffect } from "react";
 import { sublinks } from "../data";
 import reducer from "../reducers/cart-reducer";
 import {
@@ -9,8 +9,17 @@ import {
   COUNT_CART_TOTALS,
 } from "../actions";
 
+const checkLocalStorage = () => {
+  let cart = localStorage.getItem("cart");
+  if (cart) {
+    return JSON.parse(localStorage.getItem("cart"));
+  } else {
+    return [];
+  }
+};
+
 const initialState = {
-  cart: [],
+  cart: checkLocalStorage(),
   total_items: 0,
   total_amount: 0,
   shipping_fee: 0,
@@ -28,8 +37,20 @@ export const CartProvider = ({ children }) => {
       payload: { id, size, amount, product, price },
     });
   };
+  // remove item
+  const removeItem = (id) => {};
+  // toggle Amount
+  const toggleAmount = (id, value) => {};
+  // clear cart
+  const clearCart = () => {};
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+  }, [state.cart]);
   return (
-    <CartContext.Provider value={{ ...state, addToCart }}>
+    <CartContext.Provider
+      value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );

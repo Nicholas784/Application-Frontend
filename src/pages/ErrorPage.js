@@ -5,7 +5,7 @@ import { useNavContext } from "../context/nav-context";
 const ErrorPage = () => {
   const { isPromobarOpen } = useNavContext();
   return (
-    <Wrapper className={isPromobarOpen ? "error-page" : "error-page pg"}>
+    <Wrapper className={isPromobarOpen ? "page" : "page pg"}>
       <section>
         <h1>404</h1>
         <h3>Sorry, the page you tried cannot be found</h3>

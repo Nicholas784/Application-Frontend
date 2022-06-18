@@ -350,9 +350,9 @@ div.nextSlide {
   animation: show 5s linear 1;
 }
 
-.error-page {
-  height: calc(100vh - (3rem + 3.5rem + 6rem));
-}
+/* .error-page {
+  height: calc(100vh - 12.5rem);
+} */
 
 .pg {
   height: calc(100vh - (3.5rem + 6rem));
@@ -360,6 +360,10 @@ div.nextSlide {
 
 .page {
   min-height: calc(100vh - (12.5rem));
+}
+
+.pg-20 {
+  min-height: calc(100vh - (20vh + 12.5rem));
 }
 
 .drink-slide {

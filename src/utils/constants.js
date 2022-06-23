@@ -7,7 +7,6 @@ import image6 from "../images/Hairoun-image-3.jpg";
 import image7 from "../images/Hairoun-image-1.jpg";
 import image8 from "../images/Hairoun-image-2.jpg";
 import image9 from "../images/Hairoun-image-3.jpg";
-import { useProductsContext } from "../context/products-context";
 
 export const links = [
   {

@@ -63,6 +63,8 @@ const SingleProducts = () => {
       denominator = 6;
       newPrice = price / denominator;
     }
+  } else {
+    newPrice = price;
   }
 
   return (

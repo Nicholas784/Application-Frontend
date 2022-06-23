@@ -4,9 +4,11 @@ import { FaBars, FaShoppingCart, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
 import { useNavContext } from "../context/nav-context";
+import { useCartContext } from "../context/cart-context";
 
 const Navbar = () => {
   const { openSidebar } = useNavContext();
+  const { total_items } = useCartContext();
   return (
     <NavContainer className="navbar">
       <div className="nav-center">
@@ -20,7 +22,7 @@ const Navbar = () => {
           <Link to="/cart" className="shopping-cart-1">
             <span className="cart-container">
               <FaShoppingCart />
-              <span className="cart-value">12</span>
+              <span className="cart-value">{total_items}</span>
             </span>
           </Link>
         </div>
